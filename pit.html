@@ -39,5 +39,33 @@
 		example1.items.splice(newLength)
 
 	</p>
+	<h3> vue2过滤器的问题</h3>
+	<p>	
+		创建返回过滤或排序数组的计算属性。
+		例如：
+		<li v-for="n in evenNumbers">{{ n }}</li>
+		data: {
+		  numbers: [ 1, 2, 3, 4, 5 ]
+		},
+		computed: {
+		  evenNumbers: function () {
+		    return this.numbers.filter(function (number) {
+		      return number % 2 === 0
+		    })
+		  }
+		}
+		或者，你也可以在计算属性不适用的情况下 (例如，在嵌套 v-for 循环中) 使用 method 方法：
+		<li v-for="n in even(numbers)">{{ n }}</li>
+		data: {
+		  numbers: [ 1, 2, 3, 4, 5 ]
+		},
+		methods: {
+		  even: function (numbers) {
+		    return numbers.filter(function (number) {
+		      return number % 2 === 0
+		    })
+		  }
+		}
+	</p>
 </body>
 </html>
